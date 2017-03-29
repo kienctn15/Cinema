@@ -7,13 +7,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C0C0C0"
+        android:background="@color/BackgroundCinema"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:background="#646464"
+            android:background="@color/OccupiedSeat"
             android:gravity="center"
             android:text="Screen"
             android:textColor="#FFFFFF" />
@@ -381,20 +381,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <TableLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5sp"
+        android:background="@color/OccupiedSeat"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-        <TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:layout_width="32dp"
                 android:layout_height="32dp" />
 
             <TextView
-                android:layout_weight="1"
+                android:layout_width="90sp"
+                android:layout_height="wrap_content"
                 android:text="Normal Seat" />
 
             <Button
@@ -403,11 +411,9 @@
                 android:backgroundTint="@color/VIPSeat" />
 
             <TextView
-                android:layout_weight="1"
+                android:layout_width="90sp"
+                android:layout_height="wrap_content"
                 android:text="VIP Seat" />
-        </TableRow>
-
-        <TableRow>
 
             <Button
                 android:layout_width="32dp"
@@ -415,8 +421,16 @@
                 android:backgroundTint="@color/CoupleSeat" />
 
             <TextView
-                android:layout_weight="1"
+                android:layout_width="90sp"
+                android:layout_height="wrap_content"
                 android:text="Couple Seat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:layout_width="32dp"
@@ -424,8 +438,55 @@
                 android:backgroundTint="@color/OccupiedSeat" />
 
             <TextView
-                android:layout_weight="1"
+                android:layout_width="90sp"
+                android:layout_height="wrap_content"
                 android:text="Occupied" />
-        </TableRow>
-    </TableLayout>
+
+            <Button
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:backgroundTint="@color/ChoosingSeat" />
+
+            <TextView
+                android:layout_width="90sp"
+                android:layout_height="wrap_content"
+                android:text="Choosing" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5sp"
+        android:background="@color/OccupiedSeat"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.90"
+            >
+            <TextView
+                android:id="@+id/numbTicket"
+                android:padding="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You have selected 8 ticket(s)"/>
+            <TextView
+                android:id="@+id/totalMoney"
+                android:padding="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total: "
+                />
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.10"
+            android:text="Next"/>
+    </LinearLayout>
 </LinearLayout>
