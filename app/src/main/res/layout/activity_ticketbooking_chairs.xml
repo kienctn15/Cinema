@@ -18,14 +18,11 @@
             android:text="Screen"
             android:textColor="#FFFFFF" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="64dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:paddingTop="40dp">
 
             <Button
                 android:id="@+id/A1"
@@ -289,7 +286,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:paddingBottom="30dp">
 
             <Button
                 android:id="@+id/S1"
@@ -376,10 +374,6 @@
                 android:textSize="10dp" />
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
