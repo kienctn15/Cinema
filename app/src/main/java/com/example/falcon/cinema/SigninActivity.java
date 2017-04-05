@@ -74,7 +74,7 @@ public class SigninActivity extends AppCompatActivity {
                 }else{
                     String userName = user.getText().toString();
                     String Password = pass.getText().toString();
-                    new Signin().execute(userName,Password);
+                    new Signin(userName,Password).execute();
                 }
             }
         });
@@ -91,6 +91,11 @@ public class SigninActivity extends AppCompatActivity {
 
     class Signin extends AsyncTask<String, String, String> {
 
+        String uName, pwd;
+        public Signin(String user,String pass){
+            uName=user;
+            pwd=pass;
+        }
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -105,8 +110,8 @@ public class SigninActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... args) {
             int success;
-            String userName = user.getText().toString();
-            String Password = pass.getText().toString();
+            String userName ;
+            String Password;
             try {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("username", userName));

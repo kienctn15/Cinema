@@ -73,7 +73,9 @@ public class SignupActivity extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
-                    new CreateUser().execute();
+                    String userName = user.getText().toString();
+                    String Password = pass.getText().toString();
+                    new CreateUser(userName, Password).execute();
                 }
             }
         });
@@ -89,7 +91,12 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     class CreateUser extends AsyncTask<String, String, String>{
+String uName, pwd;
+        public CreateUser(String userName,String Password){
+            uName=userName;
+            pwd=Password;
 
+        }
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -103,8 +110,8 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... args) {
             int success;
-            String userName = user.getText().toString();
-            String Password = pass.getText().toString();
+            String userName = args[0];
+            String Password = args[1];
             try {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("username", userName));
