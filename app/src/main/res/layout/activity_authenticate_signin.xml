@@ -13,7 +13,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_signin_username"
+        android:id="@+id/edt_auth_signin_username"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="text"
@@ -27,7 +27,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_signin_password"
+        android:id="@+id/edt_auth_signin_password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="textPassword"
@@ -39,7 +39,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/auth_signin_forgot"
+            android:id="@+id/tv_auth_signin_forgot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -48,15 +48,16 @@
             android:textColor="@color/colorPrimaryDark" />
 
         <Button
-            android:id="@+id/auth_signin_signup"
+            android:id="@+id/btn_auth_signin_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in" />
+
+        <Button
+            android:id="@+id/btn_auth_signin_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign up" />
 
-        <Button
-            android:id="@+id/auth_signin_signin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign in" />
     </LinearLayout>
 </LinearLayout>

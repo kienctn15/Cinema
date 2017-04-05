@@ -13,7 +13,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_forgot_username"
+        android:id="@+id/edt_auth_forgot_username"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="text"
@@ -27,7 +27,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/auth_confirm_submit"
+            android:id="@+id/btn_auth_confirm_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submit Code" />
@@ -51,7 +51,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:text="Didn't get it yet?"/>
         <TextView
-            android:id="@+id/auth_confirm_resendcode"
+            android:id="@+id/tv_auth_confirm_resendcode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

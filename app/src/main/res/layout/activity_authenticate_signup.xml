@@ -13,7 +13,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_username"
+        android:id="@+id/edt_auth_signup_username"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:textSize="15sp" />
@@ -26,7 +26,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_password"
+        android:id="@+id/edt_auth_signup_password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="textPassword"
@@ -40,7 +40,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_email"
+        android:id="@+id/edt_auth_signup_email"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="textEmailAddress"
@@ -54,7 +54,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_phone"
+        android:id="@+id/edt_auth_signup_phone"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="phone"
@@ -68,7 +68,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_fullname"
+        android:id="@+id/edt_auth_signup_fullname"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="textPersonName"
@@ -82,7 +82,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_passport"
+        android:id="@+id/edt_auth_signup_passport"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="text"
@@ -96,7 +96,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/auth_address"
+        android:id="@+id/edt_auth_signup_address"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="text"
@@ -113,7 +113,7 @@
             android:layout_weight="0.25" />
 
         <Button
-            android:id="@+id/auth_signup"
+            android:id="@+id/btn_auth_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
