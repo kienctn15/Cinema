@@ -25,7 +25,7 @@ public class ForgotActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     Config config;
 
-    private Emitter.Listener sendMailChangePass = new Emitter.Listener() {
+    private Emitter.Listener result_findByEmail = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {
             runOnUiThread(new Runnable() {
@@ -36,7 +36,8 @@ public class ForgotActivity extends AppCompatActivity {
                     try {
                         data = jsonObject.getString("result_findByEmail");
                         if (data == "true") {
-                            Toast.makeText(getApplicationContext(), "COmplete", Toast.LENGTH_SHORT).show();
+                            tv_incorrectEmail.setText("correct Email.");
+
                         } else {
                             tv_incorrectEmail.setText("Incorrect Email. Put your Email .");
                             HideDialog();
@@ -49,7 +50,31 @@ public class ForgotActivity extends AppCompatActivity {
             });
         }
     };
+    private Emitter.Listener result_sendmail = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    JSONObject jsonObject = (JSONObject) args[0];
+                    String data = null;
+                    try {
+                        data = jsonObject.getString("result1");
+                        if (data == "true") {
 
+
+                        } else {
+
+                            HideDialog();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,14 +88,24 @@ public class ForgotActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         config = new Config();
         config.Connect();
-        config.mSocket.on("result_findByEmail", sendMailChangePass);
-
+        config.mSocket.on("result_findByEmail", result_findByEmail);
+        config.mSocket.on("result_sendmail",result_sendmail);
         btn_sendcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tv_incorrectEmail.setText("");
                 progressDialog.setMessage("Waiting.....");
                 ShowDialog();
-                config.mSocket.emit("sendMailChangePass", edt_email);
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("email", edt_email.getText().toString());
+                    jsonObject.toString();
+
+                    config.mSocket.emit("sendMailChangePass",jsonObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }

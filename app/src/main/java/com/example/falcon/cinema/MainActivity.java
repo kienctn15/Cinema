@@ -1,6 +1,7 @@
 package com.example.falcon.cinema;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,11 +18,11 @@ import android.widget.Button;
 
 
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Button test;
-
+    public static final String PREFS_NAME = "LoginPrefs";
+    SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME,0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
