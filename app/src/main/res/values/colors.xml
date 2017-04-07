@@ -8,4 +8,6 @@
     <color name="OccupiedSeat">#535353</color>
     <color name="ChoosingSeat">#FF12BF09</color>
     <color name="BackgroundCinema">#C0C0C0</color>
+    <color name="Black">#FF030303</color>
+    <color name="LightBlack">#2e2e2e</color>
 </resources>
