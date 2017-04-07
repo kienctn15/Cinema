@@ -26,16 +26,8 @@ public class SignupActivity extends AppCompatActivity {
     private EditText edt_username, edt_password, edt_email, edt_phone, edt_fullname, edt_passport, edt_address;
     private Button btn_signin, btn_signup;
     private ProgressDialog progressDialog;
-    private Socket mSocket;
+   Config config;
 
-    {
-        try {
-            mSocket = IO.socket("http://192.168.16.114:3000/");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private Emitter.Listener onSignup = new Emitter.Listener() {
         @Override
@@ -75,9 +67,9 @@ public class SignupActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
-
-        mSocket.connect();
-        mSocket.on("result_signup", onSignup);
+        config = new Config();
+        config.Connect();
+        config.mSocket.on("result_signup", onSignup);
 
         ButtonEvent();
     }
@@ -130,7 +122,7 @@ public class SignupActivity extends AppCompatActivity {
                             jsonObject.put("passport", passport);
                             jsonObject.put("address",address);
                             jsonObject.toString();
-                            mSocket.emit("signup", jsonObject);
+                            config.mSocket.emit("signup", jsonObject);
                         }catch (JSONException e){
                             e.printStackTrace();
                         }

@@ -9,16 +9,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
-        android:text="Email or Username"
+        android:text="Email"
         android:textColor="@color/colorPrimaryDark" />
 
     <EditText
-        android:id="@+id/edt_auth_forgot_username"
+        android:id="@+id/edt_auth_forgot_email"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="text"
         android:textSize="15sp" />
-
+<TextView
+    android:id="@+id/tv_auth_forgot_incorrectEmail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text=""/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,10 +31,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_auth_forgot_get"
+            android:id="@+id/btn_auth_forgot_sendcode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get password" />
+            android:text="Send Code" />
     </LinearLayout>
 
 </LinearLayout>

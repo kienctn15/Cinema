@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
@@ -26,17 +27,9 @@ public class SigninActivity extends AppCompatActivity {
     private EditText username, password;
     private Button btn_signin, btn_signup;
     private ProgressDialog progressDialog;
+    private TextView tv_signin_forgot;
 
-    private Socket mSocket;
-
-    {
-        try {
-            mSocket = IO.socket("http://192.168.16.114:3000/");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    Config config;
 
     private Emitter.Listener onSignin = new Emitter.Listener() {
         @Override
@@ -72,11 +65,15 @@ public class SigninActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.edt_auth_signin_password);
         btn_signin = (Button) findViewById(R.id.btn_auth_signin_signin);
         btn_signup = (Button) findViewById(R.id.btn_auth_signin_signup);
+        tv_signin_forgot= (TextView) findViewById(R.id.tv_auth_signin_forgot);
+
+        config =new Config();
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
 
-        mSocket.connect();
-        mSocket.on("result_signin", onSignin);
+        config.Connect();
+        config.mSocket.on("result_signin", onSignin);
 
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +92,16 @@ public class SigninActivity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent i = new Intent(SigninActivity.this, SignupActivity.class);
                 startActivity(i);
+            }
+        });
+
+        tv_signin_forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),ForgotActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -104,7 +109,7 @@ public class SigninActivity extends AppCompatActivity {
     private void CheckSignin(final String user, final String pass) {
         progressDialog.setMessage("Sign in.....");
         ShowDialog();
-        mSocket.emit("signin", user, pass);
+        config.mSocket.emit("signin", user, pass);
 
     }
 
