@@ -28,9 +28,11 @@ public class SigninActivity extends AppCompatActivity {
     private Button btn_signin, btn_signup;
     private ProgressDialog progressDialog;
     private TextView tv_signin_forgot;
+    public static final String PREFS_NAME = "LoginPrefs";
+    SharedPreferences sharedPreferences;
 
     Config config;
-
+    String u,p; // user , pass send from server when login success
     private Emitter.Listener onSignin = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {
@@ -39,15 +41,30 @@ public class SigninActivity extends AppCompatActivity {
             public void run() {
                 JSONObject jsonObject = (JSONObject) args[0];
                 String data = null;
+
                 try {
                     data = jsonObject.getString("result");
+                    u=jsonObject.getString("user");
+                    p=jsonObject.getString("pass");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 if (data == "true") {
                     Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("username",u);
+                    bundle.putString("password",u);
+                    intent.putExtra("bundle",bundle);
                     startActivity(intent);
-                    finish();
+
+                    sharedPreferences = getSharedPreferences(PREFS_NAME,0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("logged","logged");
+                    editor.putString("username",u);
+                    editor.putString("password",p);
+
+                    editor.commit();
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                     HideDialog();
