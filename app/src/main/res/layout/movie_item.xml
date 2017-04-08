@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:src="@drawable/bg2d" />
+                android:src="@drawable/bg3d" />
         </LinearLayout>
     </LinearLayout>
 

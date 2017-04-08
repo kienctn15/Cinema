@@ -24,7 +24,14 @@
         <activity android:name=".SigninActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".ForgotActivity" />
-        <activity android:name=".MoviesAllActivity"></activity>
+        <activity
+            android:name=".MovieAllActivity"
+            android:label="@string/title_activity_movie_all"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MovieDetail"
+            android:label="@string/title_activity_movie_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
