@@ -20,9 +20,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Button test;
+    private Button test, movies;
     public static final String PREFS_NAME = "LoginPrefs";
-    SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME,0);
+    //SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME,0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +40,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
+        movies = (Button) findViewById(R.id.btn_movie);
+        movies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MoviesAllActivity.class);
+                startActivity(intent);
+            }
+        });
 
-
-        
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
