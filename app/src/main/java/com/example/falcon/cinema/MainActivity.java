@@ -15,14 +15,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Button test, movies;
     public static final String PREFS_NAME = "LoginPrefs";
+
     //SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME,0);
+    TextView username;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +34,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        test= (Button) findViewById(R.id.btn_test);
+        username = (TextView) findViewById(R.id.Username);
+        username.setText("hai123");
+        CheckPrefLogin();
+        test = (Button) findViewById(R.id.btn_test);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,12 +57,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void CheckPrefLogin() {
+        sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+        if (sharedPreferences.getString("logged", "").toString().equals("logged")) {
+//            Intent intent = this.getIntent();
+//            Bundle bundle = intent.getBundleExtra("bundle");
+            //username.setText(bundle.getString("username"));
+         //   username.setText("hai123");
+        }
     }
 
     @Override
@@ -73,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.main, menu);
+        // getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -98,8 +113,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
         if (id == R.id.nav_signin) {
-            // Handle the camera action
+
+            if (sharedPreferences.getString("logged", "").toString().equals("logged")) {
+
+            }
+
         } else if (id == R.id.nav_promo) {
 
         } else if (id == R.id.nav_ticket) {
@@ -112,4 +132,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
