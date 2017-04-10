@@ -173,11 +173,10 @@
                     android:enabled="false"
                     android:textColor="@color/LightBlack"
                     android:textSize="13sp" />
-                <WebView
-                    android:id="@+id/vid_movie_detail_trailer"
+                <com.google.android.youtube.player.YouTubePlayerView
                     android:layout_width="match_parent"
-
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vid_movie_detail_trailer"
                     android:layout_gravity="center"
                     />
             </LinearLayout>
