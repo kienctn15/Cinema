@@ -8,4 +8,180 @@
     tools:context="com.example.falcon.cinema.MovieDetail"
     tools:showIn="@layout/activity_movie_detail">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="0dp">
+
+            <TextView
+                android:id="@+id/txt_movie_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="GHOST IN THE SHELL"
+                android:textColor="@color/Black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="225dp"
+                    android:src="@drawable/imagexample" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="107 mins"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_director"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="Micheal Fly"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_actor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="Scarlet Ahihi Scarlet AhihiScarlet AhihiScarlet AhihiScarlet AhihiScarlet AhihiScarlet Ahihi"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_country"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="Amurica"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="Amurica"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_genres"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="Hantei"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_date_release"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="31/03/2017"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_imdb_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="IMDb: 6.9"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/txt_movie_detail_format"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="2D"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/btn_movie_detail_booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:text="Booking now"
+                        android:textColor="@color/LightBlack"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="Description"
+                    android:enabled="false"
+                    android:textColor="@color/LightBlack"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_movie_detail_content"
+                    android:padding="2dp"
+                    android:text="2D"
+                    android:textColor="@color/LightBlack"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="Trailer"
+                    android:enabled="false"
+                    android:textColor="@color/LightBlack"
+                    android:textSize="13sp" />
+                <WebView
+                    android:id="@+id/vid_movie_detail_trailer"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

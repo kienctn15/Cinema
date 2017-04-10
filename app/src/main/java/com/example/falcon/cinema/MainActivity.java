@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         username = (TextView) findViewById(R.id.Username);
-        username.setText("hai123");
+       //username.setText("hai123");
         CheckPrefLogin();
         test = (Button) findViewById(R.id.btn_test);
         test.setOnClickListener(new View.OnClickListener() {
