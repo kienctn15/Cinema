@@ -13,6 +13,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.squareup.picasso.Picasso;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -45,7 +46,7 @@ public class MovieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         date = (TextView) findViewById(R.id.txt_movie_detail_date_release);
         imdb = (TextView) findViewById(R.id.txt_movie_detail_imdb_point);
         format = (TextView) findViewById(R.id.txt_movie_detail_format);
-        poster = (ImageView) findViewById(R.id.img_movie_poster);
+        poster = (ImageView) findViewById(R.id.img_movie_detail_poster);
         trailer = (YouTubePlayerView) findViewById(R.id.vid_movie_detail_trailer);
         content = (TextView) findViewById(R.id.txt_movie_detail_content);
 
@@ -70,14 +71,14 @@ public class MovieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         content.setText(i.getStringExtra("content"));
         trailer.initialize(API_KEY, MovieDetail.this);
 
-        URL url = null;
+        /*URL url = null;
         try {
             url = new URL(i.getStringExtra("poster"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        Toast.makeText(getApplicationContext(), "" + url + "", Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(getApplicationContext(), "" + url + "", Toast.LENGTH_SHORT).show();*/
+        Picasso.with(MovieDetail.this).load(i.getStringExtra("poster")).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(poster);
 
     }
 
