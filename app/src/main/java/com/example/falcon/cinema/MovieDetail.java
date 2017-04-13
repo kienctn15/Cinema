@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +30,7 @@ public class MovieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
     private TextView name, duration, director, actor, country, language, genres, date, imdb, format, content;
     private ImageView poster;
     private YouTubePlayerView trailer;
+    private Button btn_Booking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class MovieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         poster = (ImageView) findViewById(R.id.img_movie_detail_poster);
         trailer = (YouTubePlayerView) findViewById(R.id.vid_movie_detail_trailer);
         content = (TextView) findViewById(R.id.txt_movie_detail_content);
+        btn_Booking = (Button) findViewById(R.id.btn_movie_detail_booking);
 
         Intent i = getIntent();
         name.setText(i.getStringExtra("name"));
@@ -79,6 +83,14 @@ public class MovieDetail extends YouTubeBaseActivity implements YouTubePlayer.On
         }
         Toast.makeText(getApplicationContext(), "" + url + "", Toast.LENGTH_SHORT).show();*/
         Picasso.with(MovieDetail.this).load(i.getStringExtra("poster")).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(poster);
+
+        btn_Booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieDetail.this, BookingChairActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

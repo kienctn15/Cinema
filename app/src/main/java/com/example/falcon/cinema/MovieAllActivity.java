@@ -40,7 +40,7 @@ public class MovieAllActivity extends AppCompatActivity {
                                     jsonarray.getJSONObject(i).getString("startday"),
                                     jsonarray.getJSONObject(i).getDouble("imdb"),
                                     jsonarray.getJSONObject(i).getInt("duration"),
-                                    "http://192.168.16.109:3000" + jsonarray.getJSONObject(i).getString("image"),
+                                    "http://192.168.0.32:3000" + jsonarray.getJSONObject(i).getString("image"),
                                     jsonarray.getJSONObject(i).getInt("ages"),
                                     jsonarray.getJSONObject(i).getInt("format")
                             );
@@ -57,7 +57,7 @@ public class MovieAllActivity extends AppCompatActivity {
 
     {
         try {
-            mSocket = IO.socket("http://192.168.16.109:3000");
+            mSocket = IO.socket("http://192.168.0.32:3000");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ public class MovieAllActivity extends AppCompatActivity {
                     i.putExtra("imdb", String.valueOf(jsonarray.getJSONObject(position).getDouble("imdb")));
                     i.putExtra("urltrailer", jsonarray.getJSONObject(position).getString("urltrailer"));
                     i.putExtra("content", jsonarray.getJSONObject(position).getString("content"));
-                    i.putExtra("poster", "http://192.168.16.109:3000" + jsonarray.getJSONObject(position).getString("image"));
+                    i.putExtra("poster", "http://192.168.0.32:3000" + jsonarray.getJSONObject(position).getString("image"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

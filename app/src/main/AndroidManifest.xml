@@ -32,6 +32,9 @@
             android:name=".MovieDetail"
             android:label="@string/title_activity_movie_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".BookingChairActivity">
+
+        </activity>
     </application>
 
 </manifest>
